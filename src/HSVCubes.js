@@ -5,12 +5,13 @@ import {createTickPlane, createAxisArrow, PLANE_SIZE, PLANE_THICKNESS} from './C
 const NUM = 6;   // number of cubes in circle
 const MAX_RADIUS = 60;
 
-const STEPS = 7;
+let STEPS = 7;
 const HEIGHT = 140;
 const OFFSET_Y = 10;
 
 
-const addHSVProps = (cubes) => {
+const addHSVProps = (cubes, steps) => {
+  STEPS = steps - 1;
   const hsvProps = []
   for (let i = 0; i <= STEPS; i++) {
     const value = i / STEPS * 100.0;

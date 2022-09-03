@@ -21,7 +21,8 @@ const App = (props) => {
       params[k] = v
     }
   }
-  const isLite  = params.lite && params.lite === 'true' ? true : false;
+  const isLite  = true; //params.lite && params.lite === 'true' ? true : false;
+  const num  = params.num ? params.num : 8;
   const classes = useStyles();
   const [model, setModel] = useState(MODEL_NAMES[0]);
   const [selecedColor, setColor] = useState('#ffffff');
@@ -48,9 +49,38 @@ const App = (props) => {
           onSelectColor={rgb => {setColor(rgb)}}
           setPreviewing={setPreviewing}
           isLite={isLite}
+          num={num}
         />
 
         <div className={classes.controlButtons}>
+          <div className={classes.buttonBox}>
+            <Button
+              className={classes.colorPreview}
+              style={{
+                backgroundColor: selecedColor,
+                color: selectTextColor(selecedColor),
+              }}
+              onClick={()=> window.open("https://colors.artyclick.com/color-shades-finder/?color=" + selecedColor, "_blank")}
+              aria-label="color preview"
+            >
+              Shades and tints
+            </Button>
+          </div>
+
+          <div className={classes.buttonBox}>
+            <Button
+              className={classes.colorPreview}
+              style={{
+                backgroundColor: selecedColor,
+                color: selectTextColor(selecedColor),
+              }}
+              onClick={()=> window.open("https://mycolor.space/?hex=" + selecedColor.replace("#", "%23") + "&sub=1", "_blank")}
+              aria-label="color preview"
+            >
+              Palletes
+            </Button>
+          </div>
+
           <div className={classes.buttonBox}>
             <Button
               className={classes.colorPreview}

@@ -1,14 +1,15 @@
 import {rgb2hex} from './ColorUtils';
 import {createCubeMesh, createTickPlane, createAxisArrow, PLANE_SIZE, PLANE_THICKNESS} from './CubeUtils';
 
-const NUM = 8;
+let NUM = 8;
 const CUBE_SIZE = 3;
 
 const SPACING = 8;
 const OFFSET = [0, 80, 0];
 
 
-const createRGBCubes = () => {
+const createRGBCubes = (num) => {
+  NUM = num;
   const ret = []
   for (let i = 0; i < NUM; i++) {
     for (let j = 0; j < NUM; j++) {

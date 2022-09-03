@@ -122,10 +122,10 @@ class ThreeColorSpace extends React.Component {
     }
 
     /* plane settings */
-    const plane = this.makePlane();
-    scene.add(plane);
-    const gridLineColor = 0x606060;
-    scene.add(new THREE.GridHelper(1200, 60, gridLineColor, gridLineColor));
+    // const plane = this.makePlane();
+    // scene.add(plane);
+    // const gridLineColor = 0x606060;
+    // scene.add(new THREE.GridHelper(1200, 60, gridLineColor, gridLineColor));
 
     return scene;
   }
@@ -405,8 +405,8 @@ class ThreeColorSpace extends React.Component {
   }
 
   createCubes () {
-    this.cubes = createRGBCubes();
-    addHSVProps(this.cubes);
+    this.cubes = createRGBCubes(this.props.num);
+    addHSVProps(this.cubes, this.props.num);
     for (let cube of this.cubes) {
       this.scene.add(cube);
     }
